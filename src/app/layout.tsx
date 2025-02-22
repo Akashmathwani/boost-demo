@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { Inter } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
+
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
+
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,10 +28,33 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <head>
+        <script
+          defer
+          src="http://localhost:3000/publisher-script.js"
+          external-id="3"
+          publisher-address="7pLdMe6SV289tWb3w62mbcKzEHidmwCXJrT7vzqafo7k"
+        ></script>
+        {/* <script
+          defer
+          src="https://app.getboost.so/publisher-script.js"
+          property-id="6ea53fba-bcc1-4937-bf46-27f7ff8dcc47"
+          external-id="1"
+          publisher-address="7pLdMe6SV289tWb3w62mbcKzEHidmwCXJrT7vzqafo7k"
+        ></script> */}
+      </head>
+      <body className={`${inter.className} bg-gray-50 antialiased`}>
+        <nav className="border-b bg-white">
+          <div className="container mx-auto px-4 py-4">
+            <h1 className="text-2xl font-bold text-gray-900">Tech Blog</h1>
+          </div>
+        </nav>
+        <main className="container mx-auto px-4 py-8">{children}</main>
+        <footer className="border-t bg-white mt-12">
+          <div className="container mx-auto px-4 py-6 text-center text-gray-600">
+            © 2025 Tech Blog. All rights reserved.
+          </div>
+        </footer>
       </body>
     </html>
   );

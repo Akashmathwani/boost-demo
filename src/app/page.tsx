@@ -1,101 +1,149 @@
+import Link from "next/link";
 import Image from "next/image";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
-export default function Home() {
+const blogs = [
+  {
+    id: 1,
+    title: "The Future of Web Development with Next.js 15",
+    slug: "future-of-web-development-nextjs-15",
+    excerpt:
+      "Discover how Next.js 15 is revolutionizing web development with its new features, improved performance, and developer experience.",
+    category: "Framework",
+    readTime: "8 min read",
+    date: "February 20, 2025",
+    author: "Sarah Chen",
+  },
+  {
+    id: 2,
+    title: "Building AI-Powered Applications",
+    slug: "building-ai-powered-applications",
+    excerpt:
+      "Learn how to integrate modern AI capabilities into your web applications using the latest APIs and best practices.",
+    category: "Artificial Intelligence",
+    readTime: "12 min read",
+    date: "February 18, 2025",
+    author: "Michael Rodriguez",
+  },
+  {
+    id: 3,
+    title: "Mastering Modern CSS Techniques",
+    slug: "mastering-modern-css-techniques",
+    excerpt:
+      "Explore advanced CSS features like Container Queries, Cascade Layers, and the new color functions revolutionizing web design.",
+    category: "Styling",
+    readTime: "10 min read",
+    date: "February 15, 2025",
+    author: "Emma Thompson",
+  },
+  {
+    id: 4,
+    title: "Web Performance Optimization Guide",
+    slug: "web-performance-optimization-guide",
+    excerpt:
+      "A comprehensive guide to optimizing your web application's performance, from image optimization to code splitting.",
+    category: "Performance",
+    readTime: "15 min read",
+    date: "February 12, 2025",
+    author: "David Park",
+  },
+  {
+    id: 5,
+    title: "Serverless Architecture Patterns",
+    slug: "serverless-architecture-patterns",
+    excerpt:
+      "Discover the most effective serverless patterns and how to implement them in your next project.",
+    category: "Backend",
+    readTime: "11 min read",
+    date: "February 10, 2025",
+    author: "Lisa Johnson",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="max-w-6xl mx-auto">
+      <section className="mb-12">
+        <h2 className="text-4xl font-bold tracking-tight mb-4">
+          Featured Articles
+        </h2>
+        <p className="text-gray-600 mb-8">
+          Explore the latest in web development, AI, and technology.
+        </p>
+      </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+      {/* Ad Container */}
+      {/* Ads will be injected here */}
+
+      {/* <div
+        id="boost-ad-container"
+        className="boost-ad-container mb-8 p-6 bg-white rounded-lg shadow-sm border"
+      ></div> */}
+
+      <div className="mb-8">
+        <Card className="border-0 shadow-none bg-transparent">
+          <CardContent className="p-0">
+            <div
+              id="boost-ad-container"
+              className="boost-ad-container h-64 rounded-lg"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {blogs.map((blog) => (
+          <Card key={blog.id} className="flex flex-col">
+            <CardHeader className="space-y-2">
+              <div className="relative w-full h-48 mb-4">
+                <Image
+                  src={`/images/next.png`}
+                  alt={blog.title}
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
+              <div className="flex justify-between items-start">
+                <Badge variant="secondary" className="mb-2">
+                  {blog.category}
+                </Badge>
+                <span className="text-sm text-gray-500">{blog.readTime}</span>
+              </div>
+              <CardTitle className="text-xl">
+                <Link
+                  href={`/blog/${blog.slug}`}
+                  className="hover:text-blue-600 transition-colors"
+                >
+                  {blog.title}
+                </Link>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-600 mb-4">{blog.excerpt}</p>
+              <div className="flex items-center gap-2 text-sm text-gray-500">
+                <span>{blog.author}</span>
+                <span>•</span>
+                <span>{blog.date}</span>
+              </div>
+            </CardContent>
+            <CardFooter className="mt-auto">
+              <Link
+                href={`/blog/${blog.slug}`}
+                className="text-blue-600 hover:text-blue-800 font-medium"
+              >
+                Read more →
+              </Link>
+            </CardFooter>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 }
