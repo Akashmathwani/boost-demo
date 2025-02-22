@@ -29,19 +29,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
+        {/* <script
           defer
           src="http://localhost:3000/publisher-script.js"
           external-id="3"
           publisher-address="7pLdMe6SV289tWb3w62mbcKzEHidmwCXJrT7vzqafo7k"
-        ></script>
-        {/* <script
+        ></script> */}
+        <script
           defer
           src="https://app.getboost.so/publisher-script.js"
           property-id="6ea53fba-bcc1-4937-bf46-27f7ff8dcc47"
           external-id="1"
           publisher-address="7pLdMe6SV289tWb3w62mbcKzEHidmwCXJrT7vzqafo7k"
-        ></script> */}
+        ></script>
       </head>
       <body className={`${inter.className} bg-gray-50 antialiased`}>
         <nav className="border-b bg-white">
