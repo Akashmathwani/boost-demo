@@ -70,32 +70,26 @@ const blogs = [
 export default function HomePage() {
   return (
     <div className="max-w-6xl mx-auto">
-      <section className="mb-12">
-        <h2 className="text-4xl font-bold tracking-tight mb-4">
-          Featured Articles
-        </h2>
-        <p className="text-gray-600 mb-8">
-          Explore the latest in web development, AI, and technology.
-        </p>
-      </section>
+      <div className="flex items-center justify-between mb-12">
+        <section>
+          <h2 className="text-4xl font-bold tracking-tight mb-4">
+            Featured Articles
+          </h2>
+          <p className="text-gray-600">
+            Explore the latest in web development, AI, and technology.
+          </p>
+        </section>
 
-      {/* Ad Container */}
-      {/* Ads will be injected here */}
-
-      {/* <div
-        id="boost-ad-container"
-        className="boost-ad-container mb-8 p-6 bg-white rounded-lg shadow-sm border"
-      ></div> */}
-
-      <div className="mb-8">
-        <Card className="border-0 shadow-none bg-transparent">
-          <CardContent className="p-0">
-            <div
-              id="boost-ad-container"
-              className="boost-ad-container h-64 rounded-lg"
-            />
-          </CardContent>
-        </Card>
+        <div className="w-80">
+          <Card className="border-0 shadow-none bg-transparent">
+            <CardContent className="p-0">
+              <div
+                id="boost-ad-container"
+                className="boost-ad-container h-60 rounded-lg"
+              />
+            </CardContent>
+          </Card>
+        </div>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
