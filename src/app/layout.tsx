@@ -29,19 +29,30 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* <script
-          defer
-          src="http://localhost:3000/publisher-script.js"
-          external-id="3"
-          publisher-address="7pLdMe6SV289tWb3w62mbcKzEHidmwCXJrT7vzqafo7k"
-        ></script> */}
-        <script
-          defer
-          src="https://app.getboost.so/publisher-script.js"
-          property-id="6ea53fba-bcc1-4937-bf46-27f7ff8dcc47"
-          external-id="1"
-          publisher-address="7pLdMe6SV289tWb3w62mbcKzEHidmwCXJrT7vzqafo7k"
-        ></script>
+        {process.env.NODE_ENV === "development" && (
+          // <script
+          //   defer
+          //   src="http://localhost:3000/publisher-script.js"
+          //   external-id="3"
+          //   publisher-address="7pLdMe6SV289tWb3w62mbcKzEHidmwCXJrT7vzqafo7k"
+          // ></script>
+          <script
+            defer
+            src="http://localhost:3000/publisher-script.js"
+            property-id="606e4aba-15dd-477c-889e-fb8cd8f5c616"
+            external-id="5"
+            publisher-address="Gt8ACefXe4uLYZnDEp5W4o5caL2jid5g12z68eZuJf9E"
+          ></script>
+        )}
+        {process.env.NODE_ENV !== "development" && (
+          <script
+            defer
+            src="https://app.getboost.so/publisher-script.js"
+            property-id="3a48691b-c7a0-4249-bf31-1221a9622406"
+            external-id="1"
+            publisher-address="4WZYjfAwvRYGH6EgPkLFizPKDSjViLE3Pi9gauRaKRVb"
+          ></script>
+        )}
       </head>
       <body className={`${inter.className} bg-gray-50 antialiased`}>
         <nav className="border-b bg-white">
